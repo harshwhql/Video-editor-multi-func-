@@ -114,7 +114,7 @@ def color():
 
 
 root = Tk()
-root.title("Video Editor by Sudip Mondal")
+root.title("Video Editor")
 root.geometry("750x200")
 root.minsize(750, 200)
 root.maxsize(750, 200)
