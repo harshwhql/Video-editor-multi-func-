@@ -45,10 +45,10 @@ def choose():
         ("all video format", ".avi"),
     ])
     clip = VideoFileClip(filePath)
-    clip_mirror = clip.fx(vfx.mirror_x)
-    folder = filedialog.askdirectory()
-    name = datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S")
-    clip_mirror.write_videofile(folder+"/"+name+".mp4")
+    #clip_mirror = clip.fx(vfx.mirror_x)
+    #folder = filedialog.askdirectory()
+    #name = datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S")
+    #clip_mirror.write_videofile(folder+"/"+name+".mp4")
     return clip
 
 def mirror():
@@ -73,9 +73,10 @@ def resize():
 	clip_resize.write_videofile("Final render.mp4")
 
 def speed():
-     speedValue = float(input("Enter your speed : "))
-     clip_speed = clip1.fx(vfx.speedx, speedValue)
-     clip_speed.write_videofile("Final render.mp4")
+    clip1 = choose()
+    speedValue = float(input("Enter your speed : "))
+    clip_speed = clip1.fx(vfx.speedx, speedValue)
+    clip_speed.write_videofile("Final render.mp4")
 
 
 def color():
@@ -121,9 +122,10 @@ def trim():
 	clip_trim.write_videofile("Final render.mp4")
 
 def audio():
-	 audioClip = AudioClip("audio.mp3")
-	 final_clip = clip1.set_audio(audioClip)
-	 final_clip.write_videofile("Final render.mp4")
+    clip1 = choose()
+    audioClip = AudioClip("audio.mp3")
+    final_clip = clip1.set_audio(audioClip)
+    final_clip.write_videofile("Final render.mp4")
 
 
 root = Tk()
